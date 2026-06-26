@@ -13,8 +13,9 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://YOUR-VERCEL-DOMAIN.vercel.app",
+      "https://my-portfolio-five-iota-75.vercel.app",
     ],
+    methods: ["GET", "POST", "DELETE"],
     credentials: true,
   })
 );
