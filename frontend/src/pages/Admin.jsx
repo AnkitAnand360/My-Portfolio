@@ -10,8 +10,8 @@ function Admin() {
 
   // Fetch all messages
   const fetchMessages = async () => {
-    const res = await axios.get(
-      "http://localhost:5000/api/contact"
+    await axios.get(
+      `${import.meta.env.VITE_API_URL}/api/contact`
     );
 
     setMessages(res.data);
@@ -20,10 +20,9 @@ function Admin() {
   // 👇 PUT THE DELETE FUNCTION HERE
   const deleteMessage = async (id) => {
     try {
-      const res = await axios.delete(
-        `http://localhost:5000/api/contact/${id}`
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/api/contact/${id}`
       );
-
       console.log(res.data);
 
       fetchMessages(); // Refresh the list after deleting
