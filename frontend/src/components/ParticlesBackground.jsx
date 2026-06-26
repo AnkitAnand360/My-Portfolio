@@ -1,4 +1,9 @@
-import Particles from "react-tsparticles";
+import Particles from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+
+const particlesInit = async (engine) => {
+  await loadSlim(engine);
+};
 
 function ParticlesBackground() {
   return (
