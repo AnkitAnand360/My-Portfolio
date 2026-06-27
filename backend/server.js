@@ -13,10 +13,12 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      "http://127.0.0.1:5173",
       "https://my-portfolio-five-iota-75.vercel.app",
     ],
-    methods: ["GET", "POST", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
+    optionsSuccessStatus: 200,
   })
 );
 app.use(express.json());
