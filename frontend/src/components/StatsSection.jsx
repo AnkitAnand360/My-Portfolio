@@ -22,9 +22,9 @@ function StatsSection() {
   ];
 
   return (
-    <section className="py-20 bg-slate-950 text-white">
+    <section className="py-20 bg-white dark:bg-[#07070a] text-slate-900 dark:text-white transition-colors duration-300">
 
-      <h2 className="text-4xl font-bold text-center mb-12">
+      <h2 className="text-4xl font-bold text-center mb-12 text-slate-800 dark:text-white">
         My Journey
       </h2>
 
@@ -33,14 +33,14 @@ function StatsSection() {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="bg-slate-900 p-8 rounded-2xl text-center hover:scale-105 transition duration-300 shadow-lg"
+            className="bg-slate-50 border border-slate-100 dark:border dark:border-white/5 dark:bg-[#11111a] p-8 rounded-2xl text-center hover:scale-105 transition duration-300 shadow-sm hover:shadow-md dark:shadow-lg"
           >
 
-            <h3 className="text-4xl font-bold text-cyan-400 mb-3">
+            <h3 className="text-4xl font-bold text-cyan-500 dark:text-cyan-400 mb-3">
               {stat.number}
             </h3>
 
-            <p className="text-gray-300">
+            <p className="text-slate-600 dark:text-gray-300 font-medium">
               {stat.title}
             </p>
 

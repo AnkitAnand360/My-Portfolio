@@ -23,14 +23,14 @@ function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="bg-slate-950 py-20 px-6 text-white">
+    <section id="skills" className="bg-white dark:bg-[#07070a] py-20 px-6 text-slate-900 dark:text-white transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
 
-        <h2 className="text-4xl font-bold text-center mb-14">
+        <h2 className="text-4xl font-bold text-center mb-14 text-slate-800 dark:text-white">
           My Skills
         </h2>
 
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
 
           {skills.map((skill, index) => (
             <motion.div
@@ -40,22 +40,23 @@ function SkillsSection() {
                 rotate: 2,
               }}
               className="
-                bg-white/10
-                backdrop-blur-lg
-                border border-white/20
+                bg-slate-50 dark:bg-[#11111a]
+                backdrop-blur-md
+                border border-slate-100 dark:border dark:border-white/5
                 rounded-2xl
-                p-8
+                p-6 md:p-8
                 text-center
-                shadow-xl
+                shadow-sm hover:shadow-md dark:shadow-lg
                 cursor-pointer
+                transition-colors duration-300
               "
             >
 
-              <div className="text-5xl mb-4 text-cyan-400">
+              <div className="text-5xl mb-4 text-cyan-500 dark:text-cyan-400">
                 {skill.icon}
               </div>
 
-              <h3 className="text-xl font-bold">
+              <h3 className="text-xl font-bold text-slate-800 dark:text-white">
                 {skill.name}
               </h3>
 

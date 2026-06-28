@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 function ContactSection() {
   const [formData, setFormData] = useState({
@@ -40,10 +39,10 @@ function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 px-6 bg-slate-900 text-white">
+    <section id="contact" className="py-20 px-6 bg-white dark:bg-[#07070a] text-slate-900 dark:text-white transition-colors duration-300">
       <div className="max-w-3xl mx-auto">
 
-        <h2 className="text-4xl font-bold text-center mb-10">
+        <h2 className="text-4xl font-bold text-center mb-10 text-slate-800 dark:text-white">
           Get In Touch
         </h2>
 
@@ -58,7 +57,7 @@ function ContactSection() {
             placeholder="Your Name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full p-4 rounded-lg bg-slate-800"
+            className="w-full p-4 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:border dark:border-white/5 dark:bg-[#11111a] dark:text-white dark:focus:ring-2 dark:focus:ring-cyan-400 transition"
             required
           />
 
@@ -68,7 +67,7 @@ function ContactSection() {
             placeholder="Your Email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-4 rounded-lg bg-slate-800"
+            className="w-full p-4 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:border dark:border-white/5 dark:bg-[#11111a] dark:text-white dark:focus:ring-2 dark:focus:ring-cyan-400 transition"
             required
           />
 
@@ -78,24 +77,18 @@ function ContactSection() {
             placeholder="Your Message"
             value={formData.message}
             onChange={handleChange}
-            className="w-full p-4 rounded-lg bg-slate-800"
+            className="w-full p-4 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:border dark:border-white/5 dark:bg-[#11111a] dark:text-white dark:focus:ring-2 dark:focus:ring-cyan-400 transition"
             required
           />
 
           <button
             type="submit"
-            className="bg-cyan-500 text-black px-6 py-3 rounded-lg"
+            className="bg-cyan-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-cyan-400 hover:scale-105 transition duration-200 cursor-pointer shadow-md"
           >
             Send Message
           </button>
 
         </form>
-
-        <div className="flex justify-center gap-6 text-3xl mt-10">
-          <FaGithub />
-          <FaLinkedin />
-          <FaEnvelope />
-        </div>
 
       </div>
     </section>
