@@ -33,7 +33,7 @@ function Home() {
            </motion.h1>
 
         <h2 className="text-2xl text-gray-300 mb-8">
-          Full Stack MERN Developer
+          Full Stack MERN Developer | Software Developer
         </h2>
 
         <div className="flex gap-4 mb-8">

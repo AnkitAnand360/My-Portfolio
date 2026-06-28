@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const nodemailer = require("nodemailer");
 const Message = require("../models/Message");
 
 router.post("/", async (req, res) => {
@@ -15,9 +15,31 @@ router.post("/", async (req, res) => {
 
     await newMessage.save();
 
+    // Nodemailer Email Sending logic
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: "ankitanand3902@gmail.com",
+      subject: `New Portfolio Message from ${name}`,
+      text: `
+        Name: ${name}
+        Email: ${email}
+        Message: ${message}
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
     res.status(201).json({
       success: true,
-      message: "Message saved successfully",
+      message: "Message sent and saved successfully!",
     });
   } catch (error) {
     res.status(500).json({
