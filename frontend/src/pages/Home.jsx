@@ -4,6 +4,7 @@ import AboutSection from "../components/AboutSection";
 import SkillsSection from "../components/SkillsSection";
 import { motion } from "framer-motion";
 import ProjectsSection from "../components/ProjectsSection";
+import GithubActivity from "../components/GithubActivity";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import profile from "../assets/profile.jpg";
@@ -85,6 +86,7 @@ function Home() {
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
+      <GithubActivity />
       <ContactSection />
       <Footer />
       
