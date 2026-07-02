@@ -1,20 +1,19 @@
+import { motion } from "framer-motion";
+
 function StatsSection() {
   const stats = [
     {
       number: "10+",
-      title: "Projects",
+      title: "Projects Completed",
     },
-
     {
       number: "500+",
-      title: "DSA Problems",
+      title: "DSA Problems Solved",
     },
-
     {
       number: "3+",
       title: "MERN Applications",
     },
-
     {
       number: "1000+",
       title: "Coding Hours",
@@ -22,33 +21,32 @@ function StatsSection() {
   ];
 
   return (
-    <section className="py-20 bg-white dark:bg-[#07070a] text-slate-900 dark:text-white transition-colors duration-300">
+    <section className="py-20 bg-white dark:bg-black text-neutral-900 dark:text-white border-t border-neutral-200 dark:border-neutral-900 selection:bg-lime-400 selection:text-black transition-colors duration-300">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-12 text-center md:text-left">
+          Key Milestones
+        </h2>
 
-      <h2 className="text-4xl font-bold text-center mb-12 text-slate-800 dark:text-white">
-        My Journey
-      </h2>
-
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
-
-        {stats.map((stat, index) => (
-          <div
-            key={index}
-            className="bg-slate-50 border border-slate-100 dark:border dark:border-white/5 dark:bg-[#11111a] p-8 rounded-2xl text-center hover:scale-105 transition duration-300 shadow-sm hover:shadow-md dark:shadow-lg"
-          >
-
-            <h3 className="text-4xl font-bold text-cyan-500 dark:text-cyan-400 mb-3">
-              {stat.number}
-            </h3>
-
-            <p className="text-slate-600 dark:text-gray-300 font-medium">
-              {stat.title}
-            </p>
-
-          </div>
-        ))}
-
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-neutral-200 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-900 rounded-2xl overflow-hidden">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-black p-8 text-center md:text-left transition-colors duration-300"
+            >
+              <h3 className="text-4xl sm:text-5xl font-mono font-bold text-lime-500 dark:text-lime-400 mb-2">
+                {stat.number}
+              </h3>
+              <p className="text-neutral-500 dark:text-neutral-400 text-xs font-mono uppercase tracking-wider">
+                {stat.title}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-
     </section>
   );
 }

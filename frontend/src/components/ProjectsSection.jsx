@@ -1,120 +1,98 @@
 import { motion } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { projectsData } from "../data/projectsData";
 
 function ProjectsSection() {
-  const projects = [
-    {
-      title: "WanderLust abn",
-      desc: "A full-featured Airbnb clone with room bookings, reviews, and interactive maps.",
-      github: "https://github.com/AnkitAnand360/wanderLust-airbnb",
-      image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&auto=format&fit=crop&q=60",
-    },
-    {
-      title: "My Portfolio",
-      desc: "A premium developer portfolio showing skills, journey, and contact fields.",
-      github: "https://github.com/AnkitAnand360/My-Portfolio",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=60",
-    },
-    {
-      title: "Spotify Clone Simple",
-      desc: "A clean music player web interface clone built using HTML, CSS, and vanilla JavaScript.",
-      github: "https://github.com/AnkitAnand360/Spotify-Clone-Simple",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=60",
-    },
-    {
-      title: "Stopwatch",
-      desc: "A stopwatch web application with precise start, pause, and reset options.",
-      github: "https://github.com/AnkitAnand360/Stopwatch",
-      image: "https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&auto=format&fit=crop&q=60",
-    },
-    {
-      title: "Password Generator",
-      desc: "A responsive generator web app that constructs secure, highly customizable random passwords.",
-      github: "https://github.com/AnkitAnand360/Password-Generator",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=60",
-    },
-    {
-      title: "CSS Mini Project Photography",
-      desc: "A mini photography layout displaying creative image arrangements with HTML and CSS.",
-      github: "https://github.com/AnkitAnand360/CSS-Mini-Project-Photography",
-      image: "https://images.unsplash.com/photo-1493863641943-9b68992a8d07?w=600&auto=format&fit=crop&q=60",
-    },
-    {
-      title: "Calculator",
-      desc: "A functional, responsive calculation app built with HTML, CSS, and JavaScript.",
-      github: "https://github.com/AnkitAnand360/Calculator",
-      image: "https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=600&auto=format&fit=crop&q=60",
-    },
-    {
-      title: "Analog Clock",
-      desc: "A real-time analog clock interface styled and animated using HTML, CSS, and JavaScript.",
-      github: "https://github.com/AnkitAnand360/Analog-Clock",
-      image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&auto=format&fit=crop&q=60",
-    },
-  ];
-
   return (
-    <section id="projects" className="bg-slate-50 dark:bg-[#0d0d15] py-20 px-6 text-slate-900 dark:text-white transition-colors duration-300">
-      <div className="max-w-7xl mx-auto">
-
-        <h2 className="text-4xl font-bold text-center mb-12 text-slate-800 dark:text-white">
-          Projects
+    <section id="projects" className="bg-white dark:bg-black py-20 px-6 border-t border-neutral-200 dark:border-neutral-900 selection:bg-lime-400 selection:text-black transition-colors duration-300">
+      <div className="max-w-6xl mx-auto">
+        
+        <h2 className="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-16">
+          Selected Projects
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Single-Column List Showcase */}
+        <div className="space-y-16">
+          {projectsData.map((project, index) => {
+            const displayIndex = String(index + 1).padStart(2, "0");
+            
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group border-b border-neutral-200 dark:border-neutral-900 pb-12 flex flex-col md:flex-row md:items-start gap-6 md:gap-12"
+              >
+                {/* Monospace index number */}
+                <div className="text-lime-600 dark:text-lime-400 font-mono text-xl tracking-wider select-none pt-2 animate-pulse">
+                  {displayIndex} &mdash;
+                </div>
 
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              whileHover={{
-                y: -10,
-                scale: 1.03,
-              }}
-              className="
-                bg-white dark:bg-[#181824]
-                border border-slate-200/60 dark:border dark:border-white/5
-                rounded-2xl
-                shadow-sm hover:shadow-md dark:shadow-lg
-                transition duration-300
-                flex flex-col overflow-hidden
-              "
-            >
-              <div className="w-full h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover hover:scale-110 transition duration-500"
-                  loading="lazy"
-                />
-              </div>
+                {/* Main Content Area */}
+                <div className="flex-grow space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                    <Link 
+                      to={`/project/${project.id}`}
+                      className="text-3xl sm:text-5xl font-serif font-medium text-neutral-900 dark:text-white hover:text-lime-600 dark:hover:text-lime-400 transition-colors duration-250"
+                    >
+                      {project.title}
+                    </Link>
+                    <span className="text-neutral-400 dark:text-neutral-500 text-xs font-mono uppercase tracking-widest sm:text-right">
+                      {project.year}
+                    </span>
+                  </div>
 
-              <div className="p-6 flex flex-col justify-between flex-grow">
-                <div>
-                  <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-slate-600 dark:text-gray-300 text-sm mb-4">
+                  <p className="text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed max-w-3xl font-light font-sans">
                     {project.desc}
                   </p>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.tech.slice(0, 4).map((techName) => (
+                      <span 
+                        key={techName}
+                        className="text-xs font-mono text-neutral-500 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-900 px-2 py-0.5 rounded bg-neutral-50 dark:bg-neutral-950/40"
+                      >
+                        {techName}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="pt-4">
+                    <Link
+                      to={`/project/${project.id}`}
+                      className="inline-flex items-center gap-2 text-lime-600 dark:text-lime-400 font-semibold hover:text-neutral-900 dark:hover:text-white transition duration-200 text-sm tracking-wider uppercase"
+                    >
+                      Read Case Study &rarr;
+                    </Link>
+                  </div>
                 </div>
 
-                <div className="mt-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 font-semibold transition"
-                  >
-                    <FaGithub className="text-xl" />
-                    <span>View Code</span>
-                  </a>
+                {/* Optional side preview image/video on desktop */}
+                <div className="hidden lg:block w-72 h-44 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-900 shrink-0 self-center bg-neutral-100 dark:bg-neutral-950 opacity-70 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-300 relative">
+                  {project.video ? (
+                    <video
+                      src={project.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    />
+                  ) : (
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
                 </div>
-              </div>
-
-            </motion.div>
-          ))}
-
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>
