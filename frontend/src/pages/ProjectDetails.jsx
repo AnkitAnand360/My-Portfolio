@@ -71,15 +71,26 @@ function ProjectDetails() {
           className="w-full aspect-[16/9] overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-900 mb-16 bg-neutral-100 dark:bg-neutral-950 relative"
         >
           {project.video ? (
-            <video
-              src={project.video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls
-              className="w-full h-full object-cover"
-            />
+            project.video.includes("youtube.com") || project.video.includes("youtu.be") || project.video.includes("embed") ? (
+              <iframe
+                src={project.video}
+                title={project.title}
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <video
+                src={project.video}
+                poster={project.image}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                className="w-full h-full object-cover"
+              />
+            )
           ) : (
             <img
               src={project.image}

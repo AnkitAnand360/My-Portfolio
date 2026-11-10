@@ -10,8 +10,6 @@ import Footer from "../components/Footer";
 import StatsSection from "../components/StatsSection";
 import GithubActivity from "../components/GithubActivity";
 import profile from "../assets/profile.jpg";
-import TestimonialsSection from "../components/TestimonialsSection";
-import BlogSection from "../components/BlogSection";
 
 import HeroCanvas from "../components/HeroCanvas";
 import MagneticButton from "../components/MagneticButton";
@@ -147,8 +145,6 @@ function Home() {
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
-      <TestimonialsSection />
-      <BlogSection />
       <GithubActivity />
       <ContactSection />
       <Footer />
