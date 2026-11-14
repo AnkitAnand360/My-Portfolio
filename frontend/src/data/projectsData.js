@@ -34,12 +34,15 @@ export const projectsData = [
     longDesc: "A bespoke, lightning-fast digital canvas designed to highlight full-stack developments, coding milestones, and open-source contributions. It features high-end custom styling, dynamic theme switching, responsive charts, and elegant user contact gateways.",
     github: "https://github.com/AnkitAnand360/My-Portfolio",
     liveUrl: "https://devsphere-ankit.vercel.app",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-code-running-on-a-computer-screen-22243-large.mp4",
+    image: "/projects/my-portfolio/portfolio-hero.png",
+    video: "/portfolio_video.mp4",
     images: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80"
+      "/projects/my-portfolio/portfolio-hero.png",
+      "/projects/my-portfolio/portfolio-projects.png",
+      "/projects/my-portfolio/portfolio-skills.png",
+      "/projects/my-portfolio/portfolio-stats.png",
+      "/projects/my-portfolio/portfolio-github.png",
+      "/projects/my-portfolio/portfolio-contact.png"
     ],
     role: "Designer & Developer",
     year: "2026",
