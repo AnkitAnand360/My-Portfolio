@@ -55,9 +55,11 @@ export const projectsData = [
     longDesc: "Study Group Matcher connects students based on their skills, learning goals, and subject compatibility. It features an automated study planner powered by the Gemini 2.5 API, real-time group messaging with Socket.IO, interactive analytics dashboards with Recharts, and customizable scheduling.",
     github: "https://github.com/AnkitAnand360/STUDY-GROUP-MATCHER",
     liveUrl: "https://github.com/AnkitAnand360/STUDY-GROUP-MATCHER",
-    image: "/projects/study-group-matcher/study-matcher-2.png",
+    image: "/projects/study-group-matcher/study-matcher-features.jpg",
     video: "/study_group_matcher.mp4",
     images: [
+      "/projects/study-group-matcher/study-matcher-dashboard.jpg",
+      "/projects/study-group-matcher/study-matcher-features.jpg",
       "/projects/study-group-matcher/study-matcher-2.png",
       "/projects/study-group-matcher/study-matcher-3.png",
       "/projects/study-group-matcher/study-matcher-4.png",
