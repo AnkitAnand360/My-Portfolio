@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { projectsData } from "../data/projectsData";
 import { motion } from "framer-motion";
-import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaArrowLeft, FaGithub, FaExternalLinkAlt, FaExpand } from "react-icons/fa";
 import Footer from "../components/Footer";
 import ProjectGallery from "../components/ProjectGallery";
+import VideoModal from "../components/VideoModal";
 import MagneticButton from "../components/MagneticButton";
 import PageTransition from "../components/PageTransition";
 
@@ -12,6 +13,7 @@ function ProjectDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projectsData.find((p) => p.id === id);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -76,7 +78,7 @@ function ProjectDetails() {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="w-full aspect-[16/9] overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-900 mb-16 bg-neutral-100 dark:bg-neutral-950 relative"
+          className="w-full aspect-[16/9] overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-900 mb-16 bg-neutral-100 dark:bg-neutral-950 relative group"
         >
           {project.video ? (
             project.video.includes("youtube.com") || project.video.includes("youtu.be") || project.video.includes("embed") ? (
@@ -88,16 +90,26 @@ function ProjectDetails() {
                 allowFullScreen
               />
             ) : (
-              <video
-                src={project.video}
-                poster={project.image}
-                autoPlay
-                loop
-                muted
-                playsInline
-                controls
-                className="w-full h-full object-cover"
-              />
+              <div className="relative w-full h-full">
+                <video
+                  src={project.video}
+                  poster={project.image}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  className="w-full h-full object-cover"
+                />
+                <button
+                  type="button"
+                  onClick={() => setIsVideoModalOpen(true)}
+                  className="absolute top-4 right-4 z-20 bg-black/70 hover:bg-black/90 backdrop-blur-md text-white px-3.5 py-2 rounded-full text-xs font-mono tracking-wider flex items-center gap-2 cursor-pointer shadow-lg border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200"
+                  title="Expand Video Modal"
+                >
+                  <FaExpand className="text-[11px]" /> Expand Video
+                </button>
+              </div>
             )
           ) : (
             <img
@@ -221,6 +233,16 @@ function ProjectDetails() {
         </div>
       </main>
       <Footer />
+
+      {/* Video Modal Popup */}
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        videoUrl={project.video}
+        title={project.title}
+        projectLink={null}
+        poster={project.image}
+        onClose={() => setIsVideoModalOpen(false)}
+      />
     </div>
     </PageTransition>
   );
