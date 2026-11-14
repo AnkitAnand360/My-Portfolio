@@ -17,6 +17,14 @@ function ProjectDetails() {
     window.scrollTo(0, 0);
   }, [id]);
 
+  const handleBack = () => {
+    if (window.history.length > 2) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
+  };
+
   if (!project) {
     return (
       <div className="min-h-screen bg-white dark:bg-black text-neutral-900 dark:text-white flex flex-col items-center justify-center p-6 transition-colors duration-300">
@@ -30,12 +38,12 @@ function ProjectDetails() {
 
   return (
     <PageTransition>
-      <div className="bg-white dark:bg-black text-neutral-900 dark:text-white min-h-screen font-sans selection:bg-lime-400 selection:text-black transition-colors duration-300">
+      <div className="bg-white dark:bg-black text-neutral-900 dark:text-white min-h-screen font-sans selection:bg-lime-400 selection:text-black transition-colors duration-300 pt-20">
       {/* Back Button / Mini Header */}
-      <header className="sticky top-0 z-40 bg-white/85 dark:bg-black/85 backdrop-blur-md border-b border-neutral-200/60 dark:border-neutral-900/60 px-6 py-4">
+      <header className="sticky top-[73px] z-40 bg-white/85 dark:bg-black/85 backdrop-blur-md border-b border-neutral-200/60 dark:border-neutral-900/60 px-6 py-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <button 
-            onClick={() => navigate(-1)}
+            onClick={handleBack}
             className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400 hover:text-lime-600 dark:hover:text-lime-400 transition cursor-pointer text-sm font-semibold uppercase tracking-wider"
           >
             <FaArrowLeft className="text-xs" /> Back

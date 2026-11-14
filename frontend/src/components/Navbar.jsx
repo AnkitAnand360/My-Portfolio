@@ -1,12 +1,56 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes, FaSun, FaMoon, FaDesktop } from "react-icons/fa";
 import favicon from "./favicon.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("portfolio-theme") || "system";
   });
+
+  const scrollToTarget = (targetId) => {
+    if (targetId === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      setTimeout(() => {
+        const retryEl = document.getElementById(targetId);
+        if (retryEl) {
+          retryEl.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 150);
+    }
+  };
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    setMenuOpen(false);
+
+    if (location.pathname === "/") {
+      scrollToTarget(targetId);
+      window.history.pushState(null, "", `#${targetId}`);
+    } else {
+      navigate(`/#${targetId}`);
+    }
+  };
+
+  // Scroll to section when navigating from another page to home with a hash
+  useEffect(() => {
+    if (location.pathname === "/" && location.hash) {
+      const targetId = location.hash.replace("#", "");
+      const timer = setTimeout(() => {
+        scrollToTarget(targetId);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -54,7 +98,11 @@ function Navbar() {
     >
       <div className="w-full px-6 sm:px-12 md:px-16 py-5 flex justify-between items-center selection:bg-lime-400 selection:text-black">
 
-        <a href="#home" className="flex items-center gap-3 group">
+        <a 
+          href="/#home" 
+          onClick={(e) => handleNavClick(e, "home")} 
+          className="flex items-center gap-3 group"
+        >
           <img 
             src={favicon} 
             alt="Logo" 
@@ -70,27 +118,47 @@ function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 text-neutral-600 dark:text-neutral-400 font-mono text-xs uppercase tracking-wider">
           <li>
-            <a href="#home" className="hover:text-lime-400 transition duration-200">
+            <a 
+              href="/#home" 
+              onClick={(e) => handleNavClick(e, "home")} 
+              className="hover:text-lime-400 transition duration-200"
+            >
               Home
             </a>
           </li>
           <li>
-            <a href="#about" className="hover:text-lime-400 transition duration-200">
+            <a 
+              href="/#about" 
+              onClick={(e) => handleNavClick(e, "about")} 
+              className="hover:text-lime-400 transition duration-200"
+            >
               About
             </a>
           </li>
           <li>
-            <a href="#skills" className="hover:text-lime-400 transition duration-200">
+            <a 
+              href="/#skills" 
+              onClick={(e) => handleNavClick(e, "skills")} 
+              className="hover:text-lime-400 transition duration-200"
+            >
               Skills
             </a>
           </li>
           <li>
-            <a href="#projects" className="hover:text-lime-400 transition duration-200">
+            <a 
+              href="/#projects" 
+              onClick={(e) => handleNavClick(e, "projects")} 
+              className="hover:text-lime-400 transition duration-200"
+            >
               Projects
             </a>
           </li>
           <li>
-            <a href="#contact" className="hover:text-lime-400 transition duration-200">
+            <a 
+              href="/#contact" 
+              onClick={(e) => handleNavClick(e, "contact")} 
+              className="hover:text-lime-400 transition duration-200"
+            >
               Contact
             </a>
           </li>
@@ -130,8 +198,8 @@ function Navbar() {
           <ul className="flex flex-col p-6 gap-5 font-mono text-xs uppercase tracking-widest">
             <li>
               <a 
-                href="#home" 
-                onClick={() => setMenuOpen(false)}
+                href="/#home" 
+                onClick={(e) => handleNavClick(e, "home")}
                 className="block hover:text-lime-400 transition duration-200"
               >
                 Home
@@ -139,8 +207,8 @@ function Navbar() {
             </li>
             <li>
               <a 
-                href="#about" 
-                onClick={() => setMenuOpen(false)}
+                href="/#about" 
+                onClick={(e) => handleNavClick(e, "about")}
                 className="block hover:text-lime-400 transition duration-200"
               >
                 About
@@ -148,8 +216,8 @@ function Navbar() {
             </li>
             <li>
               <a 
-                href="#skills" 
-                onClick={() => setMenuOpen(false)}
+                href="/#skills" 
+                onClick={(e) => handleNavClick(e, "skills")}
                 className="block hover:text-lime-400 transition duration-200"
               >
                 Skills
@@ -157,8 +225,8 @@ function Navbar() {
             </li>
             <li>
               <a 
-                href="#projects" 
-                onClick={() => setMenuOpen(false)}
+                href="/#projects" 
+                onClick={(e) => handleNavClick(e, "projects")}
                 className="block hover:text-lime-400 transition duration-200"
               >
                 Projects
@@ -166,8 +234,8 @@ function Navbar() {
             </li>
             <li>
               <a 
-                href="#contact" 
-                onClick={() => setMenuOpen(false)}
+                href="/#contact" 
+                onClick={(e) => handleNavClick(e, "contact")}
                 className="block hover:text-lime-400 transition duration-200"
               >
                 Contact
