@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
 require("dotenv").config();
 
 const connectDB = require("./config/db");
@@ -25,6 +26,16 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Backend Running Successfully");
+});
+
+app.get("/api/health", (req, res) => {
+  const states = ["disconnected", "connected", "connecting", "disconnecting"];
+  const state = states[mongoose.connection.readyState] || "unknown";
+  res.json({
+    status: "ok",
+    database: state,
+    timestamp: new Date().toISOString(),
+  });
 });
 
 app.use("/api/contact", contactRoutes);
