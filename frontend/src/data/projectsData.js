@@ -94,10 +94,10 @@ export const projectsData = [
     desc: "A responsive generator web app that constructs secure, highly customizable random passwords.",
     longDesc: "A security tool that builds cryptographically secure random credentials according to custom constraints (numbers, casing, symbols, and length), featuring instant clipboard integrations.",
     github: "https://github.com/AnkitAnand360/Password-Generator",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&auto=format&fit=crop&q=80",
     video: "https://assets.mixkit.co/videos/preview/mixkit-typing-code-on-a-laptop-40348-large.mp4",
     images: [
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1563986768494-4ded2763ff3e?w=1200&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80"
     ],
