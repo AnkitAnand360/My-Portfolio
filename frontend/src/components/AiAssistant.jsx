@@ -35,7 +35,7 @@ function AiAssistant() {
 
     if (cleanInput.includes("mern") || cleanInput.includes("projects") || cleanInput.includes("show projects") || cleanInput.includes("show mern")) {
       return {
-        text: "Here are some of Ankit's featured projects:\n\n1. **WanderLust abn**: A full-featured Airbnb clone with room bookings, reviews, and interactive maps.\n2. **My Portfolio**: A high-performance web portfolio with custom typography, dark/light themes, and 3D canvas.\n3. **Spotify Clone**: Responsive audio player web app built with vanilla JavaScript.\n\nI have scrolled down to his projects section so you can browse them!",
+        text: "Here are some of Ankit's featured projects:\n\n1. **WanderLust abn**: A full-featured Airbnb clone with room bookings, reviews, and interactive maps.\n2. **My Portfolio**: A high-performance web portfolio with custom typography, dark/light themes, and 3D canvas.\n3. **Study Group Matcher**: An AI-powered peer matchmaking and collaborative study planning platform.\n\nI have scrolled down to his projects section so you can browse them!",
         action: "scroll-projects",
       };
     }

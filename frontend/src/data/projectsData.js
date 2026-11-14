@@ -49,63 +49,25 @@ export const projectsData = [
     solutions: "Engineered a custom theme observer via MutationObserver to coordinate colors in real-time, and added smart fallback loaders to keep layouts stable even under high latency."
   },
   {
-    id: "spotify-clone",
-    title: "Spotify Clone Simple",
-    desc: "A clean music player web interface clone built using HTML, CSS, and vanilla JavaScript.",
-    longDesc: "A responsive, pixel-perfect frontend replica of the classic Spotify desktop player. The application focuses on interactive layout fidelity, custom media playback mechanics, play/pause state synchronization, and slider manipulation.",
-    github: "https://github.com/AnkitAnand360/Spotify-Clone-Simple",
-    image: "https://images.unsplash.com/photo-1614680376593-902f74fa0d41?w=1200&auto=format&fit=crop&q=80",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-programmer-typing-on-a-keyboard-22242-large.mp4",
+    id: "study-group-matcher",
+    title: "Study Group Matcher",
+    desc: "An AI-powered peer study matchmaking and collaborative study planning platform.",
+    longDesc: "Study Group Matcher connects students based on their skills, learning goals, and subject compatibility. It features an automated study planner powered by the Gemini 2.5 API, real-time group messaging with Socket.IO, interactive analytics dashboards with Recharts, and customizable scheduling.",
+    github: "https://github.com/AnkitAnand360/STUDY-GROUP-MATCHER",
+    liveUrl: "https://github.com/AnkitAnand360/STUDY-GROUP-MATCHER",
+    image: "/projects/study-group-matcher/study-matcher-2.png",
+    video: "/study_group_matcher.mp4",
     images: [
-      "https://images.unsplash.com/photo-1614680376593-902f74fa0d41?w=1200&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&auto=format&fit=crop&q=80"
+      "/projects/study-group-matcher/study-matcher-2.png",
+      "/projects/study-group-matcher/study-matcher-3.png",
+      "/projects/study-group-matcher/study-matcher-4.png",
+      "/projects/study-group-matcher/study-matcher-5.png"
     ],
-    role: "Frontend Developer",
-    year: "2024",
-    client: "UI Practice",
-    tech: ["HTML5", "CSS3", "Vanilla JavaScript"],
-    challenges: "Developing custom browser controls for play, pause, progress slider updates, and volume configurations that are synchronized across track listings, without using external player libraries or frameworks.",
-    solutions: "Utilized the HTML5 Audio API wrapped in custom event listeners to capture track duration, updating progress ranges dynamically on audio tick intervals."
-  },
-  {
-    id: "stopwatch",
-    title: "Stopwatch",
-    desc: "A stopwatch web application with precise start, pause, and reset options.",
-    longDesc: "A minimalist utility app that measures time offsets with high precision, featuring lap-recording systems, visual markers, and fluid CSS transitions.",
-    github: "https://github.com/AnkitAnand360/Stopwatch",
-    image: "https://images.unsplash.com/photo-1508962914676-134849a727f0?w=1200&auto=format&fit=crop&q=80",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-technological-interface-22340-large.mp4",
-    images: [
-      "https://images.unsplash.com/photo-1508962914676-134849a727f0?w=1200&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=1200&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&auto=format&fit=crop&q=80"
-    ],
-    role: "Developer",
-    year: "2024",
-    client: "Utility App",
-    tech: ["HTML5", "CSS3", "JavaScript"],
-    challenges: "Keeping timing intervals strictly accurate without lagging or drifts caused by JavaScript thread blockages (event loop queuing).",
-    solutions: "Calculated elapsed time by tracking offsets from the high-resolution performance timestamp (`performance.now()`) rather than relying on strict `setInterval` iterations."
-  },
-  {
-    id: "password-generator",
-    title: "Password Generator",
-    desc: "A responsive generator web app that constructs secure, highly customizable random passwords.",
-    longDesc: "A security tool that builds cryptographically secure random credentials according to custom constraints (numbers, casing, symbols, and length), featuring instant clipboard integrations.",
-    github: "https://github.com/AnkitAnand360/Password-Generator",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&auto=format&fit=crop&q=80",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-typing-code-on-a-laptop-40348-large.mp4",
-    images: [
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1563986768494-4ded2763ff3e?w=1200&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80"
-    ],
-    role: "Developer",
-    year: "2024",
-    client: "Security Tool",
-    tech: ["React.js", "Tailwind CSS", "JavaScript"],
-    challenges: "Managing state mutations elegantly as the user changes multiple rules in real-time, while guaranteeing that the generator complies with strict password criteria.",
-    solutions: "Designed a clean React hook layout utilizing `useCallback` to generate passwords instantly whenever sliders or switches trigger state updates."
+    role: "Full Stack AI Developer",
+    year: "2025",
+    client: "AI / EdTech Project",
+    tech: ["Node.js", "Express.js", "MongoDB", "React.js", "Gemini API", "Socket.IO", "Tailwind CSS"],
+    challenges: "Developing an intelligent matchmaking algorithm that computes multi-factor compatibility scores across student profiles while keeping real-time Socket.IO group communications synchronized and low-latency.",
+    solutions: "Leveraged Gemini 2.5 Flash for rapid compatibility explanations and automated daily study plan generation, paired with an event-driven Socket.IO architecture for instant collaborative messaging."
   }
 ];
